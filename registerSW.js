@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/mw-style-diffs/sw.js', { scope: '/mw-style-diffs/' })})}
