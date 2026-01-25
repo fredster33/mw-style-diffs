@@ -130,6 +130,12 @@ output.wiki-panel:focus {
   width: 24px;
   height: 24px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .header-icon {
+    filter: invert(1);
+  }
+}
 .wiki-panel-body { padding: 16px; }
 .input-grid {
   display: grid;
