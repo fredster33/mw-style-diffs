@@ -11,6 +11,25 @@
   border-radius: 2px;
   margin-bottom: 16px;
 }
+.wiki-panel:last-child {
+  margin-bottom: 0;
+}
+header.wiki-panel {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+main > .wiki-panel:first-child {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+output.wiki-panel {
+  display: block;
+}
+output.wiki-panel:focus {
+  outline: none;
+}
 .wiki-panel-header {
   padding: 12px 16px;
   border-bottom: 1px solid #a2a9b1;
@@ -76,15 +95,6 @@
 .wiki-btn-secondary:hover { background: #eaecf0; }
 
 /* Diff table styles */
-.diff-header {
-  background: #c8ccd1;
-  padding: 8px 16px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  font-weight: bold;
-  color: #202122;
-}
 .diff-table-wrapper { overflow-x: auto; }
 .diff-table {
   width: 100%;
@@ -92,6 +102,18 @@
   font-family: monospace;
   font-size: 13px;
   line-height: 1.4;
+}
+.diff-table thead th {
+  background: #c8ccd1;
+  padding: 8px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #202122;
+  text-align: left;
+}
+.diff-table thead th:last-child {
+  text-align: right;
 }
 .diff-table td {
   padding: 1px 8px;
@@ -107,9 +129,11 @@
   user-select: none;
   background: #eaecf0;
 }
-.diff-marker[data-marker="−"] { color: #d33; }
-.diff-marker[data-marker="+"] { color: #00af89; }
-.diff-marker::after { content: attr(data-marker); }
+.diff-marker span[aria-hidden="true"] {
+  color: #202122;
+}
+.diff-marker[aria-label="Removed"] span { color: #d33; }
+.diff-marker[aria-label="Added"] span { color: #00af89; }
 .diff-context {
   background: #f8f9fa;
   color: #202122;
@@ -125,17 +149,17 @@
 .diff-empty {
   background: #f0f0f0;
 }
-.diffchange {
+.diffchange, del.diffchange, ins.diffchange {
   font-weight: bold;
   text-decoration: none;
   padding: 1px 2px;
   border-radius: 2px;
 }
-.diff-deletedline .diffchange {
+.diff-deletedline del.diffchange {
   background: #fc3;
   color: #000;
 }
-.diff-addedline .diffchange {
+.diff-addedline ins.diffchange {
   background: #a3d3ff;
   color: #000;
 }
@@ -145,12 +169,20 @@
   color: #54595d;
   font-style: italic;
 }
-.diff-legend {
+.diff-table tfoot td.diff-legend {
   background: #f8f9fa;
   border-top: 1px solid #eaecf0;
   padding: 10px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
   font-size: 12px;
   color: #54595d;
+  line-height: normal;
+}
+.legend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
 }
 .legend-item {
   display: inline-block;
@@ -167,4 +199,17 @@
   text-align: center;
   color: #72777d;
   background: #fff;
+}
+.app-footer {
+  text-align: center;
+  padding: 16px 16px 0;
+  color: #72777d;
+  font-size: 14px;
+}
+.app-footer a {
+  color: #36c;
+  text-decoration: none;
+}
+.app-footer a:hover {
+  text-decoration: underline;
 }
