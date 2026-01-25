@@ -4,11 +4,10 @@
   margin: 0 auto;
   padding: 16px;
   background: #f8f9fa;
-  min-height: 100vh;
 }
 .wiki-panel {
   background: #fff;
-  border: 1px solid #a2a9b1;
+  border: 1px solid #0b0c0c;
   border-radius: 2px;
   margin-bottom: 16px;
 }
