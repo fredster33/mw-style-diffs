@@ -100,7 +100,7 @@ export default function MWStyleDiffs() {
     <div className="mw-diff-app">
       <header className="wiki-panel wiki-panel-header">
         <h1>
-          <img src="/favicon.svg" alt="" className="header-icon" />
+          <img src="/mw-style-diffs/favicon.svg" alt="" className="header-icon" />
           MediaWiki-Style Diff Generator
         </h1>
       </header>
