@@ -1,14 +1,14 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
-import { lcs, wordDiff, escHtml } from '../src/DiffLogic';
-import '../src/MWStyleDiffs.css';
+import { useState, useCallback, useRef, useEffect, FormEvent } from 'react';
+import { lcs, wordDiff, escHtml } from './DiffLogic';
+import './MWStyleDiffs.css';
 
 export default function MWStyleDiffs() {
   const [oldText, setOldText] = useState('The quick brown fox jumps over the lazy dog.\n\nThis is a sample paragraph that will be changed.\n\nThis line stays the same.');
   const [newText, setNewText] = useState('The quick red fox leaps over the lazy dog.\n\nThis is a modified paragraph that has been updated.\n\nThis line stays the same.\n\nA new paragraph was added.');
   const [diffHtml, setDiffHtml] = useState('');
-  const outputRef = useRef(null);
+  const outputRef = useRef<HTMLOutputElement>(null);
 
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const oldLines = oldText.split('\n');
     const newLines = newText.split('\n');
@@ -20,7 +20,7 @@ export default function MWStyleDiffs() {
     while (oi < oldLines.length || ni < newLines.length) {
       const match = ci < common.length ? common[ci] : null;
 
-      if (match && match.oldIdx === oi && match.newIdx === ni) {
+      if (match?.oldIdx === oi && match.newIdx === ni) {
         const line = escHtml(oldLines[oi]);
         html += `<tr>
           <td class="diff-marker" aria-label="Unchanged"><span aria-hidden="true"></span></td>
@@ -33,8 +33,8 @@ export default function MWStyleDiffs() {
         const nextOldIdx = match ? match.oldIdx : oldLines.length;
         const nextNewIdx = match ? match.newIdx : newLines.length;
 
-        const deletedLines = [];
-        const addedLines = [];
+        const deletedLines: string[] = [];
+        const addedLines: string[] = [];
 
         while (oi < nextOldIdx) deletedLines.push(oldLines[oi++]);
         while (ni < nextNewIdx) addedLines.push(newLines[ni++]);
@@ -117,7 +117,7 @@ export default function MWStyleDiffs() {
                     name="old-text"
                     className="wiki-textarea"
                     value={oldText}
-                    onChange={(e) => setOldText(e.target.value)}
+                    onChange={(e) => { setOldText(e.target.value); }}
                     placeholder="Enter original text..."
                   />
                 </section>
@@ -128,7 +128,7 @@ export default function MWStyleDiffs() {
                     name="new-text"
                     className="wiki-textarea"
                     value={newText}
-                    onChange={(e) => setNewText(e.target.value)}
+                    onChange={(e) => { setNewText(e.target.value); }}
                     placeholder="Enter modified text..."
                   />
                 </section>
@@ -154,7 +154,7 @@ export default function MWStyleDiffs() {
           name="diff-result"
           htmlFor="old-text new-text"
           ref={outputRef}
-          tabIndex="-1"
+          tabIndex={-1}
         >
           {diffHtml ? (
             <div className="diff-table-wrapper">
@@ -167,14 +167,14 @@ export default function MWStyleDiffs() {
                 </colgroup>
                 <thead>
                   <tr>
-                    <th scope="col" colSpan="2"><span aria-hidden="true">← </span>Old text</th>
-                    <th scope="col" colSpan="2">New text<span aria-hidden="true"> →</span></th>
+                    <th scope="col" colSpan={2}><span aria-hidden="true">← </span>Old text</th>
+                    <th scope="col" colSpan={2}>New text<span aria-hidden="true"> →</span></th>
                   </tr>
                 </thead>
                 <tbody dangerouslySetInnerHTML={{ __html: diffHtml }} />
                 <tfoot>
                   <tr>
-                    <td colSpan="4" className="diff-legend">
+                    <td colSpan={4} className="diff-legend">
                       <strong>Legend: </strong>
                       <ul className="legend-list">
                         <li className="legend-item legend-removed">Removed line</li>
