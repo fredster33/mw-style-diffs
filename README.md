@@ -30,6 +30,6 @@ UI inspired by [Codex](https://doc.wikimedia.org/codex/latest/).
 React + TypeScript, with Vite for build tooling and ESLint for code quality.
 
 # Contributing
-PRs welcome! Take a look at the [issues tab](https://github.com/fredster33/mw-style-diffs/issues) for ideas.
+PRs welcome! Take a look at the [issues tab](https://github.com/fredster33/mw-style-diffs/issues) for ideas. This project uses [gitmoji](https://gitmoji.dev) 😉✨💯
 
 Credits: Logo [created by `scarlab`](https://www.svgrepo.com/svg/508074/git-diff) and MIT licensed.
