@@ -1,16 +1,35 @@
-# React + Vite
+# <img src="public/favicon.svg" alt="Logo" height="28"> MediaWiki-Style Diff Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Instantly visualize changes between text or code versions. Create gorgeous, side-by-side [diffs](https://en.wikipedia.org/wiki/File_comparison) in your browser, just like Wikipedia's revision history. Powered by a [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki)-inspired algorithm ([longest common subsequence](https://en.wikipedia.org/wiki/Longest_common_subsequence)).
 
-Currently, two official plugins are available:
+UI inspired by [Codex](https://doc.wikimedia.org/codex/latest/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![PageSpeed Insights screenshot](pagespeed-insights.avif)
+<div align="center">
+  <p>
+    <em>
+      <a href="https://pagespeed.web.dev/analysis/https-fredster33-github-io-mw-style-diffs/l93qtaybgh?form_factor=mobile">
+        PageSpeed Insights
+      </a>
+    </em>
+  </p>
+</div>
 
-## React Compiler
+![Website Carbon Calculator screenshot](website-carbon.avif)
+<div align="center">
+  <p>
+    <em>
+      <a href="https://www.websitecarbon.com/website/fredster33-github-io-mw-style-diffs/">
+        Website Carbon Calculator
+      </a>
+    </em>
+  </p>
+</div>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Stack
+React + TypeScript, with Vite for build tooling and ESLint for code quality.
 
-## Expanding the ESLint configuration
+# Contributing
+PRs welcome! Take a look at the [issues tab](https://github.com/fredster33/mw-style-diffs/issues) for ideas.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Credits: Logo [created by `scarlab`](https://www.svgrepo.com/svg/508074/git-diff) and MIT licensed.
