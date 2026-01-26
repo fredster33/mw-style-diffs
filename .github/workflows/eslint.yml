@@ -1,5 +1,7 @@
 name: Run ESLint
 on: [push, pull_request]
+permissions:
+  contents: read
 
 jobs:
   eslint:
