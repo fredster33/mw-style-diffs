@@ -92,7 +92,10 @@ export default function MWStyleDiffs() {
 
   useEffect(() => {
     if (diffHtml && outputRef.current) {
-      outputRef.current.focus();
+      const el = outputRef.current;
+      requestAnimationFrame(() => {
+        el.focus();
+      });
     }
   }, [diffHtml]);
 
